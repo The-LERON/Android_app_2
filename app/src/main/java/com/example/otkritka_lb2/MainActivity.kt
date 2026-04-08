@@ -35,10 +35,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(
+                    GreetingImage(
                         message = "Happy Birthday Alina!",
-                        from = "From Takhir",
-                        modifier = Modifier.padding(8.dp)
+                        from = "Takhir",
+                        modifier = Modifier.fillMaxSize()
                     )
                 }
             }
@@ -47,9 +47,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingImage (message: String, from: String, modifier: Modifier = Modifier){
+fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.androidparty)
-    Box(modifier){
+    Box(modifier) {
         Image(
             painter = image,
             contentDescription = null,
@@ -69,29 +69,17 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Время события
-        Text(
-            text = "12:00",
-            fontSize = 24.sp,
-            color = MaterialTheme.colorScheme.secondary,
-            modifier = Modifier.padding(bottom = 32.dp)
-        )
-
-
-        // Основное поздравление
         Text(
             text = message,
-            fontSize = 36.sp,
-            lineHeight = 40.sp,
+            fontSize = 100.sp,
+            lineHeight = 116.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
-        // Подпись
         Text(
             text = from,
-            fontSize = 24.sp,
-            color = MaterialTheme.colorScheme.primary,
+            fontSize = 36.sp,
             modifier = Modifier
                 .padding(16.dp)
                 .align(Alignment.End)
@@ -101,13 +89,11 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingTextPreview() {
+fun BirthdayCardPreview() {
     Otkritka_Lb2Theme {
-        GreetingText(
-            message = "Happy " +
-                    "Birthday " +
-                    "Alina!",
-            from = "From Takhir"
+        GreetingImage(
+            message = "Happy Birthday Sam!",
+            from = "Emma"
         )
     }
 }
